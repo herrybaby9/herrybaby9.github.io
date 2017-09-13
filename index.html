@@ -151,27 +151,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-新建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/03/新建/">怎么新建一个博客</a>
+      <a class="article-title" href="/2017/09/10/react/">react环境的创建</a>
     </h1>
   
 
         
-        <a href="/2017/09/03/新建/" class="archive-article-date">
-  	<time datetime="2017-09-03T11:41:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
+        <a href="/2017/09/10/react/" class="archive-article-date">
+  	<time datetime="2017-09-10T09:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一步：在本地属于博客的文件夹里面打开git命令<br>第二步：输入 hexo new “ 文章题目”<br>第三步：code.打开当前的文件所在<br>第四步：写博客，```javascript    …  里面写代码<br>第五步：保存后在git 命令里面输入  hexo g   生成静态页面(hexo generate)<br>第六步：hexo deploy  执行命令，简写：hexo d<br>如果没有生成，可能是网速问题，输入命令：hexo server可以现在本地查看：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
+        <p>使用npm包来来初始化react以及管理react环境依赖<br>1.建立文件夹，打开git;<br>2.npm init 来初始化<br>在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。<br>3.安装它需要的包。npm install react react-dom babelify babel-preset-react –save(如果下载速度太慢，你无法跨域，就安装一个淘宝镜像  在以后用cnpm 代替npm就可以了。)–save是在本地下载的命令。<br>4.安装es2015,npm install babel-preset-es2015 –save(因为我们需要es2015的语言支持)<br>5.用webpack打一个这些最终集合的js的包。<br>首先建立一个webpack.config.js,里面的mu’ban文件如下<br>```<br>var webpack = require(‘webpack’);<br>var path = require(‘path’);</p>
+<p>module.exports = {<br>  context:_dirname + ‘/src’,</p>
+<p>  entry: “../js/index.js”,<br>  module: {<br>    loaders: [<br>      {<br>        test: /.js?$/,<br>        exclude: /(node_modules)/,<br>        loader: ‘babel-loader’,<br>        query: {<br>          presets: [‘react’, ‘es2015’]</p>
+<pre><code>    }
+  }]
+},   
+</code></pre><p>  output : {<br>    path: __dirname + “/src/“,<br>    filename: “bundle.js”<br>  }</p>
+<p>};<br>…</p>
 
       
 
@@ -184,7 +191,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/03/新建/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/10/react/">展开全文 >></a>
         </p>
       
 
@@ -214,27 +221,27 @@
 
 
   
-    <article id="post-用github-hexo-免费搭建博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-新建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/03/用github-hexo-免费搭建博客/">用github hexo 免费搭建博客</a>
+      <a class="article-title" href="/2017/09/03/新建/">怎么新建一个博客</a>
     </h1>
   
 
         
-        <a href="/2017/09/03/用github-hexo-免费搭建博客/" class="archive-article-date">
-  	<time datetime="2017-09-03T11:23:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
+        <a href="/2017/09/03/新建/" class="archive-article-date">
+  	<time datetime="2017-09-03T11:41:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 这是我的第一篇博客<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>第一步：在本地属于博客的文件夹里面打开git命令<br>第二步：输入 hexo new “ 文章题目” （记住这个是要加空格的）<br>第三步：code.打开当前的文件所在<br>第四步：写博客，```javascript    …  里面写代码<br>第五步：保存后在git 命令里面输入  hexo g   生成静态页面(hexo generate)<br>第六步：hexo deploy  执行命令，简写：hexo d<br>如果没有生成，可能是网速问题，输入命令：hexo server可以现在本地查看：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></p>
 
       
 
@@ -247,7 +254,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/03/用github-hexo-免费搭建博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/03/新建/">展开全文 >></a>
         </p>
       
 

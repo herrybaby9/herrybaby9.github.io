@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/9 | 伊只猫</title>
+  <title>react环境的创建 | 伊只猫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="伊只猫">
-<meta property="og:url" content="http://yoursite.com/archives/2017/09/index.html">
+  <meta name="description" content="使用npm包来来初始化react以及管理react环境依赖1.建立文件夹，打开git;2.npm init 来初始化在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。3.安装它需要的包。npm inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react环境的创建">
+<meta property="og:url" content="http://yoursite.com/2017/09/10/react/index.html">
 <meta property="og:site_name" content="伊只猫">
+<meta property="og:description" content="使用npm包来来初始化react以及管理react环境依赖1.建立文件夹，打开git;2.npm init 来初始化在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。3.安装它需要的包。npm inst">
+<meta property="og:updated_time" content="2017-09-11T10:03:14.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="伊只猫">
+<meta name="twitter:title" content="react环境的创建">
+<meta name="twitter:description" content="使用npm包来来初始化react以及管理react环境依赖1.建立文件夹，打开git;2.npm init 来初始化在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。3.安装它需要的包。npm inst">
   
     <link rel="alternative" href="/atom.xml" title="伊只猫" type="application/atom+xml">
   
@@ -149,103 +153,161 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-react" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      react环境的创建
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/10/react/" class="archive-article-date">
+
+        
+        <a href="/2017/09/10/react/" class="archive-article-date">
   	<time datetime="2017-09-10T09:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/10/react/">react环境的创建</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用npm包来来初始化react以及管理react环境依赖<br>1.建立文件夹，打开git;<br>2.npm init 来初始化<br>在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。<br>3.安装它需要的包。npm install react react-dom babelify babel-preset-react –save(如果下载速度太慢，你无法跨域，就安装一个淘宝镜像  在以后用cnpm 代替npm就可以了。)–save是在本地下载的命令。<br>4.安装es2015,npm install babel-preset-es2015 –save(因为我们需要es2015的语言支持)<br>5.用webpack打一个这些最终集合的js的包。<br>首先建立一个webpack.config.js,里面的mu’ban文件如下<br>```<br>var webpack = require(‘webpack’);<br>var path = require(‘path’);</p>
+<p>module.exports = {<br>  context:_dirname + ‘/src’,</p>
+<p>  entry: “../js/index.js”,<br>  module: {<br>    loaders: [<br>      {<br>        test: /.js?$/,<br>        exclude: /(node_modules)/,<br>        loader: ‘babel-loader’,<br>        query: {<br>          presets: [‘react’, ‘es2015’]</p>
+<pre><code>    }
+  }]
+},   
+</code></pre><p>  output : {<br>    path: __dirname + “/src/“,<br>    filename: “bundle.js”<br>  }</p>
+<p>};<br>…</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/10/react/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/03/新建/" class="archive-article-date">
-  	<time datetime="2017-09-03T11:41:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/03/新建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">怎么新建一个博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/03/新建/">怎么新建一个博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/03/hello-world/" class="archive-article-date">
-  	<time datetime="2017-09-03T03:55:35.408Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/03/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -268,8 +330,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

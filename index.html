@@ -171,15 +171,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用npm包来来初始化react以及管理react环境依赖<br>1.建立文件夹，打开git;<br>2.npm init 来初始化<br>在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。<br>3.安装它需要的包。npm install react react-dom babelify babel-preset-react –save(如果下载速度太慢，你无法跨域，就安装一个淘宝镜像  在以后用cnpm 代替npm就可以了。)–save是在本地下载的命令。<br>4.安装es2015,npm install babel-preset-es2015 –save(因为我们需要es2015的语言支持)<br>5.用webpack打一个这些最终集合的js的包。<br>首先建立一个webpack.config.js,里面的mu’ban文件如下<br>```<br>var webpack = require(‘webpack’);<br>var path = require(‘path’);</p>
-<p>module.exports = {<br>  context:_dirname + ‘/src’,</p>
-<p>  entry: “../js/index.js”,<br>  module: {<br>    loaders: [<br>      {<br>        test: /.js?$/,<br>        exclude: /(node_modules)/,<br>        loader: ‘babel-loader’,<br>        query: {<br>          presets: [‘react’, ‘es2015’]</p>
-<pre><code>    }
-  }]
-},   
-</code></pre><p>  output : {<br>    path: __dirname + “/src/“,<br>    filename: “bundle.js”<br>  }</p>
-<p>};<br>…</p>
+        <p>使用npm包来来初始化react以及管理react环境依赖<br>1.建立文件夹，打开git;<br>2.npm init 来初始化<br>在name后面输入括号里面name值，然后按照步骤一步一步来，entry point:(入口文件)就输入index.js，然后最后输入yes 就会出来一个npm配置包的文件叫做package.jion.以后再本目录下安装的所有配置的包都在上面管理。<br>3.安装它需要的包。npm install react react-dom babelify babel-preset-react –save(如果下载速度太慢，你无法跨域，就安装一个淘宝镜像  在以后用cnpm 代替npm就可以了。)–save是在本地下载的命令。<br>4.安装es2015,npm install babel-preset-es2015 –save(因为我们需要es2015的语言支持)<br>5.用webpack打一个这些最终集合的js的包。<br>首先建立一个webpack.config.js,里面的mu’ban文件如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var webpack = require(&apos;webpack&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line"></div><div class="line">module.exports = &#123;</div><div class="line">  context:__dirname + &apos;/src&apos;,</div><div class="line">  </div><div class="line">  entry: &quot;../js/index.js&quot;,//要按照路径来</div><div class="line">  module: &#123;</div><div class="line">    loaders: [</div><div class="line">      &#123;</div><div class="line">        test: /\.js?$/,</div><div class="line">        exclude: /(node_modules)/,</div><div class="line">        loader: &apos;babel-loader&apos;,</div><div class="line">        query: &#123;</div><div class="line">          presets: [&apos;react&apos;, &apos;es2015&apos;]</div><div class="line">         </div><div class="line">        &#125;</div><div class="line">      &#125;]</div><div class="line">    &#125;,   </div><div class="line">  output : &#123;</div><div class="line">    path: __dirname + &quot;/src/&quot;,</div><div class="line">    filename: &quot;bundle.js&quot;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">输入：npm install -g webpack(-g是全局的意思)</div><div class="line">     npm install -g webpack-dev-server</div><div class="line">     然后再目录下面安装一遍：</div><div class="line">     npm install webpack --save</div><div class="line">     npm install webpack-dev-server --save</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    建立一个src文件夹，新建一个index.html,index.js</div><div class="line">    输入webpack,看是否出来一个bundle.js</div><div class="line">    把bundle.js引入到index.html里面，即可完成编译</div></pre></td></tr></table></figure>
+<pre><code>3优化编译：
+在编译的过程中我们会发现当更改了index.js里面的数据，需要重新在git上输入webpack 的命令。这样效率会十分低，十分麻烦。可以输入：webpack --watch 就会实现自动编译。
 
+4.让浏览器自动刷新。
+为了增加效率，达到实时观看代码在浏览器的运行结果。
+输入：webpack-dev-server
+会出现一个新的路径。
+
+5.取消浏览器的长路径。
+webpack-dev-server --contentbase src --inline --hot
+</code></pre>
       
 
       
